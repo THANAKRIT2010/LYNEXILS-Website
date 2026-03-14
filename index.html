@@ -20,27 +20,27 @@ if(isset($_GET['logout'])){
 <html lang="th">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LYNEXILS</title>
 
 <style>
 
 body{
-font-family:Arial;
+font-family:Arial,sans-serif;
 background:linear-gradient(135deg,#e6f0ff,#f4f7fb);
 margin:0;
 }
 
-/* โลโก้จาง */
+/* โลโก้พื้นหลัง */
 .bglogo{
 position:fixed;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-font-size:200px;
-color:#000;
+font-size:220px;
+font-weight:bold;
 opacity:0.03;
 pointer-events:none;
-font-weight:bold;
 }
 
 /* nav */
@@ -56,6 +56,7 @@ gap:40px;
 box-shadow:0 4px 15px rgba(0,0,0,0.1);
 }
 
+/* banner */
 .banner{
 background:#0e1a2b;
 color:white;
@@ -78,6 +79,7 @@ margin:30px auto;
 display:flex;
 gap:20px;
 justify-content:center;
+flex-wrap:wrap;
 }
 
 .card{
@@ -108,12 +110,17 @@ margin:5px;
 
 button{
 padding:10px 20px;
+background:#4bb3ff;
+border:none;
+color:white;
+border-radius:8px;
+cursor:pointer;
 }
 
-/* admin */
+/* admin panel */
 .admin{
 width:90%;
-margin:auto;
+margin:40px auto;
 background:white;
 padding:20px;
 border-radius:15px;
@@ -135,9 +142,9 @@ right:20px;
 <div class="bglogo">LYNEXILS</div>
 
 <div class="nav">
-หน้าหลัก
-เว็บไซต์
-เติมเงิน
+<div>หน้าหลัก</div>
+<div>เว็บไซต์</div>
+<div>เติมเงิน</div>
 </div>
 
 <div class="banner">
@@ -160,6 +167,11 @@ right:20px;
 <div class="card">
 <h3>สถานะ</h3>
 <p>ออนไลน์</p>
+</div>
+
+<div class="card">
+<h3>เซิร์ฟเวอร์</h3>
+<p>Online</p>
 </div>
 
 </div>
@@ -196,6 +208,7 @@ right:20px;
 <li>จัดการเว็บไซต์</li>
 <li>ดูสถิติ</li>
 <li>ตั้งค่าระบบ</li>
+<li>จัดการสมาชิก</li>
 </ul>
 
 <br>
@@ -205,8 +218,6 @@ right:20px;
 </div>
 
 <?php } ?>
-
-<!-- เครื่องเล่นเพลง -->
 
 <audio class="music" controls autoplay loop>
 <source src="music.mp3" type="audio/mpeg">
