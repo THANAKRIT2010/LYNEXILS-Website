@@ -1,78 +1,64 @@
 <?php
 session_start();
-
-$admin_user = "admin";
-$admin_pass = "1234";
-
-if(isset($_POST['login'])){
-    if($_POST['username']==$admin_user && $_POST['password']==$admin_pass){
-        $_SESSION['login'] = true;
-    }
-}
-
-if(isset($_GET['logout'])){
-    session_destroy();
-    header("Location:index.php");
-}
 ?>
 
 <!DOCTYPE html>
 <html lang="th">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>LYNEXILS</title>
 
 <style>
 
 body{
-font-family:Arial,sans-serif;
-background:linear-gradient(135deg,#e6f0ff,#f4f7fb);
+font-family:Arial;
+background:linear-gradient(135deg,#dbe9f5,#eaf2fb);
 margin:0;
 }
 
-/* โลโก้พื้นหลัง */
-.bglogo{
-position:fixed;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-font-size:220px;
-font-weight:bold;
-opacity:0.03;
-pointer-events:none;
-}
-
 /* nav */
+
 .nav{
 background:white;
-margin:20px auto;
 width:90%;
-border-radius:20px;
+margin:20px auto;
 padding:15px;
+border-radius:15px;
 display:flex;
 justify-content:center;
 gap:40px;
-box-shadow:0 4px 15px rgba(0,0,0,0.1);
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.nav a{
+text-decoration:none;
+color:#1a73e8;
+font-weight:bold;
 }
 
 /* banner */
+
 .banner{
-background:#0e1a2b;
-color:white;
 width:90%;
 margin:auto;
-border-radius:20px;
-padding:60px;
+background:#0e1a2b;
+border-radius:15px;
+padding:50px;
+color:white;
 text-align:center;
 }
 
 .banner h1{
 font-size:60px;
-color:#4bb3ff;
+color:#3ea6ff;
+margin:0;
 }
 
 /* stats */
+
 .stats{
 width:90%;
 margin:30px auto;
@@ -85,72 +71,82 @@ flex-wrap:wrap;
 .card{
 background:white;
 padding:20px;
-border-radius:15px;
-width:200px;
-text-align:center;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
+width:220px;
+border-radius:12px;
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* login */
-.login{
+.card h3{
+margin:0;
+font-size:16px;
+color:#666;
+}
+
+.card p{
+font-size:28px;
+color:#1a73e8;
+margin-top:10px;
+}
+
+/* rental */
+
+.rental{
+width:90%;
+margin:40px auto;
+}
+
+.rental-box{
+background:white;
+padding:20px;
+border-radius:12px;
 width:300px;
-margin:40px auto;
-background:white;
-padding:20px;
-border-radius:15px;
-text-align:center;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
 }
 
-input{
-width:90%;
-padding:10px;
-margin:5px;
-}
+/* music player */
 
-button{
-padding:10px 20px;
-background:#4bb3ff;
-border:none;
-color:white;
-border-radius:8px;
-cursor:pointer;
-}
-
-/* admin panel */
-.admin{
-width:90%;
-margin:40px auto;
-background:white;
-padding:20px;
-border-radius:15px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
-
-/* music */
-.music{
+.player{
 position:fixed;
 bottom:20px;
 right:20px;
+background:white;
+padding:10px;
+border-radius:12px;
+box-shadow:0 4px 12px rgba(0,0,0,0.2);
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div class="bglogo">LYNEXILS</div>
+<!-- NAV -->
 
 <div class="nav">
-<div>หน้าหลัก</div>
-<div>เว็บไซต์</div>
-<div>เติมเงิน</div>
+
+<a href="#">หน้าหลัก</a>
+<a href="#">เลือกบริการ</a>
+<a href="#">เติมเงิน</a>
+<a href="#">คู่มือ</a>
+<a href="#">ติดต่อ</a>
+<a href="#">รีวิวเครดิต</a>
+
 </div>
 
+<!-- BANNER -->
+
 <div class="banner">
+
 <h1>LYNEXILS</h1>
-<p>บริการเช่าเว็บไซต์ราคาถูก</p>
+
+<h2>บริการเช่าเว็บไซต์</h2>
+
+<h3>ราคาถูก!?</h3>
+
 </div>
+
+<!-- STATS -->
 
 <div class="stats">
 
@@ -160,68 +156,51 @@ right:20px;
 </div>
 
 <div class="card">
-<h3>เว็บไซต์</h3>
+<h3>จำนวนประเภทเว็บไซต์</h3>
 <p>1</p>
 </div>
 
 <div class="card">
-<h3>สถานะ</h3>
-<p>ออนไลน์</p>
+<h3>สถานะเว็บไซต์</h3>
+<p>เช่าปกติ</p>
 </div>
 
 <div class="card">
-<h3>เซิร์ฟเวอร์</h3>
-<p>Online</p>
+<h3>เว็บไซต์ที่ถูกเช่า</h3>
+<p>1</p>
 </div>
 
 </div>
 
-<?php if(!isset($_SESSION['login'])){ ?>
+<!-- RENTAL -->
 
-<div class="login">
+<div class="rental">
 
-<h3>Login</h3>
+<h2>รายการเช่าเว็บล่าสุด</h2>
 
-<form method="post">
+<div class="rental-box">
 
-<input name="username" placeholder="Username">
+<h3>example</h3>
 
-<input type="password" name="password" placeholder="Password">
+<p>ราคา 398 บาท (30 วัน)</p>
 
-<br><br>
-
-<button name="login">Login</button>
-
-</form>
+<button>เช่าเว็บไซต์</button>
 
 </div>
 
-<?php } else { ?>
-
-<div class="admin">
-
-<h2>Admin Panel</h2>
-
-<p>ยินดีต้อนรับ Admin</p>
-
-<ul>
-<li>จัดการเว็บไซต์</li>
-<li>ดูสถิติ</li>
-<li>ตั้งค่าระบบ</li>
-<li>จัดการสมาชิก</li>
-</ul>
-
-<br>
-
-<a href="?logout=true">Logout</a>
-
 </div>
 
-<?php } ?>
+<!-- MUSIC PLAYER -->
 
-<audio class="music" controls autoplay loop>
-<source src="music.mp3" type="audio/mpeg">
+<div class="player">
+
+<audio controls autoplay loop>
+
+<source src="music.mp3">
+
 </audio>
+
+</div>
 
 </body>
 </html>
