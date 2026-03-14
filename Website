@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LYNEXILS</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg,#e6f0ff,#f4f7fb);
+margin:0;
+}
+
+.nav{
+background:white;
+margin:20px auto;
+width:90%;
+border-radius:20px;
+padding:15px 25px;
+display:flex;
+justify-content:center;
+gap:40px;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+.nav a{
+text-decoration:none;
+color:#2c3e50;
+font-weight:bold;
+}
+
+.banner{
+width:90%;
+margin:20px auto;
+background:#0e1a2b;
+color:white;
+padding:60px;
+border-radius:20px;
+text-align:center;
+}
+
+.banner h1{
+font-size:60px;
+margin:0;
+color:#2ea6ff;
+}
+
+.banner p{
+font-size:28px;
+margin-top:10px;
+}
+
+.stats{
+width:90%;
+margin:auto;
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.card{
+flex:1;
+min-width:200px;
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.card h3{
+margin:0;
+color:#555;
+}
+
+.card p{
+font-size:28px;
+color:#2ea6ff;
+margin-top:10px;
+}
+
+.latest{
+width:90%;
+margin:40px auto;
+}
+
+.box{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+footer{
+text-align:center;
+padding:20px;
+color:#777;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="nav">
+<a href="#">หน้าหลัก</a>
+<a href="#">เลือกบริการ</a>
+<a href="#">เติมเงิน</a>
+<a href="#">คู่มือ</a>
+<a href="#">ติดต่อ</a>
+<a href="#">รีวิวเครดิต</a>
+</div>
+
+<div class="banner">
+<h1>LYNEXILS</h1>
+<p>บริการเช่าเว็บไซต์ ราคาถูก</p>
+</div>
+
+<div class="stats">
+
+<div class="card">
+<h3>ผู้ใช้ทั้งหมด</h3>
+<p>7 คน</p>
+</div>
+
+<div class="card">
+<h3>ประเภทเว็บไซต์</h3>
+<p>1 ประเภท</p>
+</div>
+
+<div class="card">
+<h3>สถานะเว็บไซต์</h3>
+<p>เช่าปกติ</p>
+</div>
+
+<div class="card">
+<h3>เว็บที่ถูกเช่า</h3>
+<p>1 เว็บ</p>
+</div>
+
+</div>
+
+<div class="latest">
+<h2>รายการเช่าเว็บล่าสุด</h2>
+
+<div class="box">
+<b>example</b><br>
+ราคา 398.00 บาท (30 วัน)<br>
+สถานะ: เช่าแล้ว
+</div>
+
+</div>
+
+<footer>
+LYNEXILS WEBSITE
+</footer>
+
+</body>
+</html>
