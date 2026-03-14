@@ -1,206 +1,296 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="th">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>LYNEXILS</title>
 
-<style>
-
-body{
-font-family:Arial;
-background:linear-gradient(135deg,#dbe9f5,#eaf2fb);
-margin:0;
-}
-
-/* nav */
-
-.nav{
-background:white;
-width:90%;
-margin:20px auto;
-padding:15px;
-border-radius:15px;
-display:flex;
-justify-content:center;
-gap:40px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
-.nav a{
-text-decoration:none;
-color:#1a73e8;
-font-weight:bold;
-}
-
-/* banner */
-
-.banner{
-width:90%;
-margin:auto;
-background:#0e1a2b;
-border-radius:15px;
-padding:50px;
-color:white;
-text-align:center;
-}
-
-.banner h1{
-font-size:60px;
-color:#3ea6ff;
-margin:0;
-}
-
-/* stats */
-
-.stats{
-width:90%;
-margin:30px auto;
-display:flex;
-gap:20px;
-justify-content:center;
-flex-wrap:wrap;
-}
-
-.card{
-background:white;
-padding:20px;
-width:220px;
-border-radius:12px;
-box-shadow:0 4px 12px rgba(0,0,0,0.1);
-}
-
-.card h3{
-margin:0;
-font-size:16px;
-color:#666;
-}
-
-.card p{
-font-size:28px;
-color:#1a73e8;
-margin-top:10px;
-}
-
-/* rental */
-
-.rental{
-width:90%;
-margin:40px auto;
-}
-
-.rental-box{
-background:white;
-padding:20px;
-border-radius:12px;
-width:300px;
-box-shadow:0 4px 12px rgba(0,0,0,0.1);
-}
-
-/* music player */
-
-.player{
-position:fixed;
-bottom:20px;
-right:20px;
-background:white;
-padding:10px;
-border-radius:12px;
-box-shadow:0 4px 12px rgba(0,0,0,0.2);
-}
-
-</style>
+<link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
 
-<!-- NAV -->
+<div class="bglogo">LYNEXILS</div>
 
-<div class="nav">
+<nav class="navbar">
 
 <a href="#">หน้าหลัก</a>
 <a href="#">เลือกบริการ</a>
 <a href="#">เติมเงิน</a>
 <a href="#">คู่มือ</a>
 <a href="#">ติดต่อ</a>
-<a href="#">รีวิวเครดิต</a>
+<a href="login.html">เข้าสู่ระบบ</a>
 
-</div>
+</nav>
 
-<!-- BANNER -->
-
-<div class="banner">
+<section class="banner">
 
 <h1>LYNEXILS</h1>
-
 <h2>บริการเช่าเว็บไซต์</h2>
+<p>ราคาถูก!?</p>
 
-<h3>ราคาถูก!?</h3>
+</section>
 
-</div>
+<section class="stats">
 
-<!-- STATS -->
-
-<div class="stats">
-
-<div class="card">
+<div class="box">
 <h3>ผู้ใช้ทั้งหมด</h3>
-<p>7</p>
+<p id="users">7</p>
 </div>
 
-<div class="card">
+<div class="box">
 <h3>จำนวนประเภทเว็บไซต์</h3>
 <p>1</p>
 </div>
 
-<div class="card">
+<div class="box">
 <h3>สถานะเว็บไซต์</h3>
 <p>เช่าปกติ</p>
 </div>
 
-<div class="card">
-<h3>เว็บไซต์ที่ถูกเช่า</h3>
+<div class="box">
+<h3>จำนวนเว็บไซต์ที่ถูกเช่า</h3>
 <p>1</p>
 </div>
 
-</div>
+</section>
 
-<!-- RENTAL -->
-
-<div class="rental">
+<section class="latest">
 
 <h2>รายการเช่าเว็บล่าสุด</h2>
 
-<div class="rental-box">
+<div class="rent-card">
 
 <h3>example</h3>
+<p>ราคา 398 บาท / 30 วัน</p>
 
-<p>ราคา 398 บาท (30 วัน)</p>
-
-<button>เช่าเว็บไซต์</button>
-
-</div>
+<button onclick="rent()">เช่าเว็บไซต์</button>
 
 </div>
 
-<!-- MUSIC PLAYER -->
+</section>
 
-<div class="player">
+<div class="music-player">
 
 <audio controls autoplay loop>
 
-<source src="music.mp3">
+<source src="music/song.mp3">
 
 </audio>
 
 </div>
 
+<script src="js/app.js"></script>
+
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Login</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="login-box">
+
+<h2>เข้าสู่ระบบ</h2>
+
+<input id="user" placeholder="username">
+<input id="pass" type="password" placeholder="password">
+
+<button onclick="login()">Login</button>
+
+</div>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Dashboard</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<a href="index.html">หน้าเว็บ</a>
+<a href="#">จัดการเว็บ</a>
+<a href="#">ผู้ใช้</a>
+<a href="#">ออกจากระบบ</a>
+
+</nav>
+
+<div class="dashboard">
+
+<h1>Admin Panel</h1>
+
+<div class="stats">
+
+<div class="box">
+<h3>Users</h3>
+<p>7</p>
+</div>
+
+<div class="box">
+<h3>เว็บไซต์</h3>
+<p>1</p>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
+
+body{
+font-family:Arial;
+margin:0;
+background:linear-gradient(135deg,#dfefff,#f3f7ff);
+}
+
+.bglogo{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:200px;
+opacity:0.05;
+}
+
+.navbar{
+background:white;
+padding:15px;
+display:flex;
+justify-content:center;
+gap:30px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.navbar a{
+text-decoration:none;
+color:#1976ff;
+}
+
+.banner{
+width:80%;
+margin:40px auto;
+background:#0f1b2c;
+color:white;
+padding:60px;
+border-radius:15px;
+text-align:center;
+}
+
+.banner h1{
+font-size:70px;
+color:#2da4ff;
+}
+
+.stats{
+display:flex;
+gap:20px;
+justify-content:center;
+margin:40px;
+flex-wrap:wrap;
+}
+
+.box{
+background:white;
+padding:20px;
+border-radius:12px;
+width:200px;
+text-align:center;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.latest{
+width:80%;
+margin:auto;
+}
+
+.rent-card{
+background:white;
+padding:20px;
+width:300px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+button{
+background:#1976ff;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.music-player{
+position:fixed;
+bottom:20px;
+right:20px;
+background:white;
+padding:10px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.login-box{
+width:300px;
+margin:200px auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.login-box input{
+width:100%;
+margin:10px 0;
+padding:10px;
+}
+
+function login(){
+
+let user=document.getElementById("user").value
+let pass=document.getElementById("pass").value
+
+if(user=="admin" && pass=="1234"){
+
+alert("เข้าสู่ระบบสำเร็จ")
+
+window.location="dashboard.html"
+
+}else{
+
+alert("รหัสผิด")
+
+}
+
+}
+
+function rent(){
+
+alert("ระบบเช่าเว็บกำลังพัฒนา")
+
+}
